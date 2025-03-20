@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kiểm tra email</title>
+</head>
+<body>
+
+  <input type="text" id="email" placeholder="Nhập email">
+  <button onclick="validateEmail()">check</button>
+  <div id="result"></div>
+
+  <script>
+    function validateEmail() {
+      const emailInput = document.getElementById("email");
+      const email = emailInput.value;
+      const resultDiv = document.getElementById("result");
+
+      if (email.includes('@') && (email.endsWith('.com') || email.endsWith('.vn'))) {
+        resultDiv.textContent = "email hợp lệ!";
+        resultDiv.style.color = "green";
+      } else {
+        resultDiv.textContent = "email không hợp lệ!";
+        resultDiv.style.color = "red";
+      }
+    }
+  </script>
+
+</body>
+</html>

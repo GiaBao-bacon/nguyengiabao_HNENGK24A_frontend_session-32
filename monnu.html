@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thay đổi kích thước chữ</title>
+  <style>
+    #text {
+      font-size: 16px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px;
+    }
+    #increase {
+      background-color: green;
+      color: white;
+    }
+    #decrease {
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <p id="text">Chữ sẽ thay đổi kích thước sau khi bấm nút</p>
+  <button id="increase">+</button>
+  <button id="decrease">-</button>
+
+  <script>
+    const text = document.getElementById("text");
+    const increaseButton = document.getElementById("increase");
+    const decreaseButton = document.getElementById("decrease");
+    let fontSize = 16;
+
+    increaseButton.addEventListener("click", () => {
+      fontSize += 2;
+      text.style.fontSize = fontSize + "px";
+    });
+
+    decreaseButton.addEventListener("click", () => {
+      fontSize -= 2;
+      text.style.fontSize = fontSize + "px";
+    });
+  </script>
+
+</body>
+</html>

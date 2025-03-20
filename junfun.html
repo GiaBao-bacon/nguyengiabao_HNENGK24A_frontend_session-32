@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <style>
+    .task {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #ccc;
+      padding: 8px;
+      margin-bottom: 5px;
+    }
+    #addButton {
+      background-color: #4CAF50; 
+      border: none;
+      color: white;
+      padding: 5px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="text" id="taskInput" placeholder="Nhập nhiệm vụ">
+  <button id="addButton">Thêm</button>
+  <div id="taskList"></div>
+
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const addButton = document.getElementById("addButton");
+    const taskList = document.getElementById("taskList");
+
+    addButton.addEventListener("click", addTask);
+
+    function addTask() {
+      const taskText = taskInput.value.trim();
+      if (taskText) {
+        const taskDiv = document.createElement("div");
+        taskDiv.classList.add("task");
+        taskDiv.innerHTML = `<span>${taskText}</span>
+                             <button class="deleteButton">X</button>`;
+        taskList.appendChild(taskDiv);
+        taskInput.value = "";
+
+        const deleteButton = taskDiv.querySelector(".deleteButton");
+        deleteButton.addEventListener("click", function() {
+          if (confirm("Bạn có chắc chắn muốn xóa nhiệm vụ này?")) {
+            taskDiv.remove();
+          }
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>

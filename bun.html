@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập sử dụng DOM</title>
+</head>
+<body>
+    <form id="monHocForm">
+        <label for="monHocInput"></label>
+        <input placeholder="nhap ten mon hoc" id="monHocInput" type="text" name="monHocInput" />
+        <button type="button" id="themMonHocBtn">Them mon hoc</button>
+        <ol class="container" id="danhSachMonHoc">
+            <li>Toan</li>
+            <li>Li</li>
+            <li>Hoa</li>
+        </ol>
+    </form>
+    <script>
+        const monHocInput = document.getElementById("monHocInput");
+        const themMonHocBtn = document.getElementById("themMonHocBtn");
+        const danhSachMonHoc = document.getElementById("danhSachMonHoc");
+
+        themMonHocBtn.addEventListener("click", function() {
+            const tenMonHoc = monHocInput.value.trim();
+
+            if (tenMonHoc === "") {
+                alert("tên môn học không được để trống!");
+                return;
+            }
+
+            const monHocMoi = document.createElement("li");
+            monHocMoi.textContent = tenMonHoc;
+
+            danhSachMonHoc.appendChild(monHocMoi);
+            monHocInput.value = "";
+        });
+    </script>
+</body>
+</html>

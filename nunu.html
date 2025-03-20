@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Đếm số lần bấm</title>
+</head>
+<body>
+
+<button id="clickButton">Bấm vào tôi</button>
+
+<p>Số lần bấm: <span id="clickCount">0</span></p>
+
+<script>
+  const button = document.querySelector("#clickButton");
+  const countDisplay = document.querySelector("#clickCount");
+  let count = 0;
+  button.addEventListener("click", function() {
+    count++;
+    countDisplay.textContent = count;
+  });
+</script>
+
+</body>
+</html>
